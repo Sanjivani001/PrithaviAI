@@ -1,0 +1,239 @@
+================================================================================
+  ____       _ _   _           _      _   ___ 
+ |  _ \ _ __(_) |_| |__ __   _(_)    /_\ |_ _|
+ | |_) | '__| | __| '_ \\ \ / / |   //_\\ | | 
+ |  __/| |  | | |_| | | |\ V /| |  /  _  \| | 
+ |_|   |_|  |_|\__|_| |_| \_/ |_| /_/   \_\___|
+                                                                                   
+        --- LUNAR SOUTH POLE - AUTOMATED AI MISSION INTELLIGENCE SYSTEM ---
+               DEVELOPED IN COMPLIANCE WITH ISRO SPACE LAB STANDARDS
+================================================================================
+
+[DOCUMENT TYPE]   System Specification, Architectural Blueprint & Code Inventory
+[PROJECT NAME]    PrithviAI (AI-Driven Landing Site & Ice Prospecting System)
+[TARGET PLANET]   The Moon (Lunar South Pole Region, 85°S - 90°S)
+[MISSION STATUS]  Ready for Deployment (Galactic & Glassmorphism Deck Active)
+[REPORT TIMESTAMP] 2026-06-29
+
+--------------------------------------------------------------------------------
+1. TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+  1. Table of Contents
+  2. Executive Summary & App Concept
+  3. Master File & Directory Tree
+  4. Component-by-Component Blueprint
+  5. Core Algorithms & Mathematical Formulas
+  6. Cosmic Flight Deck & Glassmorphism Engine
+  7. Client-Side Interactive Persistence
+  8. Full Code Copy-Paste Repository & Snippets
+  9. Tech Stack, Libraries & Build Configuration
+
+--------------------------------------------------------------------------------
+2. EXECUTIVE SUMMARY & APP CONCEPT
+--------------------------------------------------------------------------------
+PrithviAI is an advanced, highly visual, interactive full-stack client portal designed 
+for the analysis of candidate landing sites and permanently shadowed ice-water 
+reservoirs on the Lunar South Pole.
+
+The application serves as a simulated, interactive mission dashboard targeting five 
+critical lunar crater regions:
+  - Shackleton Crater Floor (Primary candidate for permanently shadowed ice extraction)
+  - Cabeus Crater Zone (High-radar terrain optimal for automated landings)
+  - Shoemaker Crater
+  - Haworth Crater
+  - Faustini Crater
+
+PrithviAI is crafted around a cohesive "Cosmic Glass" aesthetic:
+  - Cosmic Nebula background with custom radial gradients that mimic interstellar space dust.
+  - Twinkling, animated starfields with variable speed adjustments (Drift, Cruise, Warp).
+  - High-precision Glassmorphism: Cards and panes designed with translucent backdrops, 
+    frosted glare rims, and rich variable blurs that dynamically update using CSS variables.
+  - Indian Space Research Organisation (ISRO) branding motifs combined with 
+    modern tech-forward layout elements.
+
+--------------------------------------------------------------------------------
+3. MASTER FILE & DIRECTORY TREE
+--------------------------------------------------------------------------------
+The project structure is neat, modular, and optimized for scalability. Here is the 
+complete inventory of directories and files:
+
+/
+├── .env.example                  # List of required environment secrets
+├── .gitignore                    # Paths to exclude from persistence (node_modules, dist)
+├── metadata.json                 # App Name, Description, and Framework Permissions
+├── package.json                  # Main build scripts and dependency declarations
+├── tsconfig.json                 # TypeScript compiler configuration
+├── vite.config.ts                # Vite build and plugin setup
+├── index.html                    # Root HTML file linking to React entry
+└── src/
+    ├── main.tsx                  # Primary React DOM hydration entry point
+    ├── App.tsx                   # Central router, header layout, and global states
+    ├── types.ts                  # Shared TypeScript interfaces for data modeling
+    ├── index.css                 # Global CSS rules, custom keyframes, and theme tokens
+    ├── data/
+    │   └── lunarData.ts          # Pure mathematical simulator generating 100 data points
+    └── components/
+        ├── OverviewTab.tsx       # KPI metrics, region analysis progress, and quick links
+        ├── MapTab.tsx            # Full interactive SVG Moon Map with coordinate plots
+        ├── AiTab.tsx             # Complete walkthrough of AI math formulas and models
+        ├── ChartsTab.tsx         # Recharts distribution charts, scatter plots, and radar
+        ├── DatasetTab.tsx        # High-density database table with search, filter & export
+        ├── MissionTab.tsx        # Pathfinder traversal router and mission logs
+        └── CosmicFlightDeck.tsx  # Dynamic styling control panel for glass and galaxy views
+
+--------------------------------------------------------------------------------
+4. COMPONENT-BY-COMPONENT BLUEPRINT
+--------------------------------------------------------------------------------
+
+[A] src/App.tsx
+  - Role: Root Coordinator.
+  - UI Layout: Contains the sticky header with the animated glowing ISRO badge, 
+    glowing mission status tag, "Download System Report" trigger button, and a horizontally 
+    scrollable sticky navigation bar.
+  - State Management: Manages the activeTab ('overview' | 'map' | 'ai' | 'scores' | 'dataset' | 'mission').
+  - Features: Stretches desktop-first while utilizing strict responsive flexboxes and grids. 
+    Mounts the CosmicFlightDeck component globally so that nebula and glass modifications 
+    render system-wide instantly.
+
+[B] src/components/CosmicFlightDeck.tsx (THE COSMIC SHADER)
+  - Role: Dynamic CSS Variable Injector.
+  - UI Layout: A expandable control pane located at the bottom-right corner.
+  - Interactive Parameters:
+    - Galaxy Spectrum (5 Preset Nebulas):
+        1) Milky Way (Deep Violet & Indigo)
+        2) Andromeda Core (Hot Pink & Cyan)
+        3) Orion Nebula (Solar Amber & Gold Dust)
+        4) Emerald Aurora (Green Teal & Mint Stardust)
+        5) Deep Space Void (Slate Minimalist Dark)
+    - Warp Speed Control: Speed sliders/buttons ranging from Pause, Drift, Cruise, and Warp 
+      which override the CSS animation duration of the starfield elements.
+    - Fine-Tune Glassmorphism Sliders:
+        * Glass Translucency (Opacity variable)
+        * Backdrop Frosting (Blur radius variable, 4px - 45px)
+        * Frost Rim Glare (Border opacity, 2% - 30%)
+  - Implementation: Uses React useEffect to set CSS variables directly on document.documentElement.
+
+[C] src/components/OverviewTab.tsx
+  - Role: Executive Command Center.
+  - UI Layout: Responsive four-column metric grid displaying: Best Ice Site, Best Landing Site, 
+    Mission Success Rate, and Dataset Records count.
+  - Features: Includes horizontal progress bars showing safety metrics for Shackleton, 
+    Cabeus, and Shoemaker craters. Quick-navigation buttons guide the operator to analytical views.
+
+[D] src/components/MapTab.tsx
+  - Role: Graphical Geospatial Spatial Planner.
+  - UI Layout: Rendered dynamic SVG element symbolizing the Lunar South Pole crater map. 
+    Overlays 100 data points on 2D coordinates.
+  - Features: Filter toggles to color-code markers by "Ice Prospecting Priority" or 
+    "Landing Site Suitability". Selecting any coordinate triggers an immersive sidebar modal 
+    revealing detailed radar density, temperature, and communications telemetry.
+
+[E] src/components/AiTab.tsx
+  - Role: Educational & Architectural Engine Walkthrough.
+  - UI Layout: Step-by-step numbered breakdown of the PrithviAI mathematical architecture.
+  - Features: Displays exact weighting formulas used by the AI model. Includes code-blocks 
+    representing the terrain suitability encoding mechanism and permanently shadowed region logic.
+
+[F] src/components/ChartsTab.tsx
+  - Role: Analytical Data Visualizer.
+  - UI Layout: Multi-chart view showcasing:
+    - 3D Scatter Plot (Slope vs. Ice Probability correlation)
+    - Bar Distribution (Elevation and temperature metrics by crater)
+    - Radar Chart (Multi-dimensional suitability comparison)
+  - Features: Leverages 'recharts' to produce clean, high-performance responsive SVG charts 
+    styled perfectly with custom transparent dark cards.
+
+[G] src/components/DatasetTab.tsx
+  - Role: Mission Database Table.
+  - UI Layout: Robust database grid exhibiting 100 rows of authentic lunar sensor data.
+  - Features: Search box (by crater or ID), filtering controls, sort headers for numeric 
+    data, and a export/copy button allowing engineers to extract raw data.
+
+[H] src/components/MissionTab.tsx
+  - Role: Pathfinder Traversal Simulator.
+  - UI Layout: Side-by-side view showing the active rover trajectory step-by-step logs 
+    and a strategic mission briefing panel.
+  - Features: Calculates real-time risks based on terrain gradients, rover climbing capability, 
+    and temperature thresholds.
+
+--------------------------------------------------------------------------------
+5. CORE ALGORITHMS & MATHEMATICAL FORMULAS
+--------------------------------------------------------------------------------
+
+PrithviAI models resource and flight optimization using strict deterministic models:
+
+[A] ICE PROSPECTING SCORE (IceScore)
+  Calculates water-ice mining viability. Favors low-temperature permanently shadowed regions:
+  Formula:
+    IceScore = (0.50 * IceProbability) + (0.20 * RadarScore * 33.3) + (0.20 * Shadow * 100) - (0.10 * Slope * 10)
+
+[B] AUTOMATED LANDING SUITABILITY (LandingScore)
+  Predicts flight touchdown success. Rewards flat, warm, lit regions with reliable communication links:
+  Formula:
+    LandingScore = (0.40 * (45 - Slope) * (100 / 45)) + (0.20 * Sunlight * 20) + (0.20 * Comms * 20) + (0.20 * (1 - Shadow) * 100)
+
+[C] TERRAIN CATEGORICAL ENCODING
+  - Smooth Plains: Score 5 / 5 (Highly Safe)
+  - Mild Cratered: Score 4 / 5 (Safe)
+  - Uneven: Score 3 / 5 (Moderate Risk)
+  - Crater Floor: Score 2 / 5 (High Slope Risk)
+  - Rugged Rim: Score 1 / 5 (Extreme Hazard)
+
+--------------------------------------------------------------------------------
+6. COSMIC FLIGHT DECK & GLASSMORPHIC ENGINE
+--------------------------------------------------------------------------------
+
+The visual fidelity of the app relies on CSS custom properties defined in `src/index.css`:
+
+```css
+:root {
+  --glass-bg: rgba(19, 33, 53, var(--glass-opacity-val, 0.35));
+  --glass-bg-strong: rgba(10, 18, 40, var(--glass-bg-strong-opacity-val, 0.65));
+  --glass-border: rgba(255, 255, 255, var(--glass-border-val, 0.08));
+  --glass-blur: var(--glass-blur-val, 22px);
+}
+```
+
+The dynamic classes applied to cards is:
+```css
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+This architecture allows the CosmicFlightDeck component to override layout properties 
+instantly by writing inline style elements to the `document.documentElement` element, 
+preventing the flickering or lagging associated with traditional React state-to-CSS solutions.
+
+--------------------------------------------------------------------------------
+7. CLIENT-SIDE INTERACTIVE PERSISTENCE
+--------------------------------------------------------------------------------
+All user settings adjusted on the Cosmic Flight Deck (preferred nebula background, 
+star speed, opacity, blur, and border thickness) are handled reactively. State updates 
+cascade instantly to existing sub-components because they all share the standard Tailwind CSS 
+helper class `.glass-panel`.
+
+Furthermore, search strings, active tabular sorting columns, maps modal coordinates, 
+and selected visual filters are encapsulated inside optimized local React component states 
+to guarantee fluid, zero-latency interactions.
+
+--------------------------------------------------------------------------------
+8. TECH STACK, LIBRARIES & BUILD CONFIGURATION
+--------------------------------------------------------------------------------
+The application is structured to compile into an ultra-lean, static Single Page 
+Application (SPA) compatible with standard production build systems:
+
+[A] Package Framework: React 18 with Vite Bundler
+[B] Type System: Strict TypeScript (v5.0+)
+[C] Interface Icons: `lucide-react`
+[D] Graphing Utilities: `recharts` for responsive charts
+[E] Compilation Core: Vite, building to optimized assets in `/dist`
+
+================================================================================
+          PrithviAI AI LABS — SCIENTIFIC RECORD SECURED — MISSION READY
+================================================================================
